@@ -58,8 +58,9 @@ fn base26(num: &u64) -> String {
     let mut decode = String::new();
     let chars: Vec<char> = "23456789BCDFGHJKMNPQRTVWXY".chars().collect();
     for _ in 0..5 {
+        let pchar = chars[(encode as usize).wrapping_rem(chars.len())];
+        decode.push(pchar);
         encode = encode.wrapping_div(chars.len() as u64);
-        decode.push(chars[(encode as usize).wrapping_rem(chars.len())]);
     }
     decode
 }
