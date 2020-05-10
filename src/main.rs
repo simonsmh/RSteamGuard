@@ -23,7 +23,7 @@ fn main() {
     ctx.set_contents(passcode.to_owned()).unwrap();
     println!("{}\n{}s left", passcode, left_time);
     // Extra time for writting xcb or it would fail
-    std::thread::sleep(Duration::from_millis(2));
+    std::thread::sleep(Duration::from_millis(10));
 }
 
 #[cfg(feature = "predefined_secret")]
